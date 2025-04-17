@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 using namespace std;
-class item_data
+class Item_Data
 {
 private:
     int item_id;
@@ -9,14 +9,14 @@ private:
     float item_prize;
     int item_quantity;
     public:
-        void get_data(int id,string name,int quantity,float prize)
+        void Get_Data(int id,string name,int quantity,float prize)
         {
           item_id=id;
           item_name=name;
           item_prize=prize;
           item_quantity=quantity;
         }
-        int buy(int ID,int QUANTITY)
+        int Buy_Item(int ID,int QUANTITY)
         {
            if(item_id==ID)
            {
@@ -33,7 +33,7 @@ private:
                }
 
         }
-          void display()
+          void Display()
           {
               cout<<"The product id is : "<<item_id<<endl;
               cout<<"The quantity of the product is: "<<item_quantity<<endl;
@@ -47,7 +47,7 @@ int main()
     float prize;
     string name;
     char input;
-    item_data I[100];
+    Item_Data I[100];
     cout<<"WELCOME TO THE STORE"<<endl;
     do{
     cout<<"Enter A to add data in stock,Enter B to buy something,Enter D to display current data and Enter E to exit: ";
@@ -66,7 +66,7 @@ int main()
         cin>>prize;
         for(i=0;i<100;i++)
         {
-        I[i].get_data(id,name,quantity,prize);
+        I[i].Get_Data(id,name,quantity,prize);
         }
         break;
     case 'B':
@@ -74,21 +74,18 @@ int main()
         cin>>id;
         cout<<"Enter the quantity of the product to buy: ";
         cin>>quantity;
-        for(i=0;i<100;i++)
-        {
-        I[i].buy(id,quantity);
-        }
+        I[i].Buy_Item(id,quantity);
         break;
     case 'D':
           cout<<"HERE IS YOUR DATA: "<<endl;
           for(i=0;i<100;i++)
           {
-        I[i].display();
+        I[i].Display();
           }
         break;
 
 }
     }while(input!='E');
-    cout<<"NAME: SIMRAN BAMBANI"<<endl<<"ID: 24CE005";
+    return 0;
 }
 
