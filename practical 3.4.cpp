@@ -22,13 +22,12 @@ void Reverse_Array(T *a,int size)
     }
 }
 template<typename T>
-void display(T *a,int size)
+void Display(T *a,int size)
 {
     for(int i=0;i<size;i++)
     {
         cout<<a[i]<<endl;
     }
-    //cout<<endl;
 }
 
 int main() {
@@ -48,7 +47,7 @@ int main() {
         cout<<"Max: "<<Max(arr,array_size)<<endl;
         Reverse_Array(arr,array_size);
         cout<<"Reversed: "<<endl;
-        display(arr,array_size);
+        Display(arr,array_size);
         delete[] arr;
 
     }
@@ -63,7 +62,7 @@ int main() {
         cout<<"Max: "<<Max(arr, array_size)<<endl;
         Reverse_Array(arr,array_size);
         cout<<"Reversed: "<<endl;
-        display(arr, array_size);
+        Display(arr, array_size);
         delete[] arr;
 
     }
@@ -78,7 +77,7 @@ int main() {
         cout<<"Max: "<<Max(arr,array_size)<<endl;
         Reverse_Array(arr,array_size);
         cout<<"Reversed: "<<endl;
-        display(arr,array_size);
+        Display(arr,array_size);
         delete[] arr;
 
     }
