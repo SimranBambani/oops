@@ -9,7 +9,7 @@ class Product
     int quantity;
     float price;
 public:
-    void Set_Data(int pid,string pname,int qty,float p)
+    void Get_Data(int pid,string pname,int qty,float p)
     {
         id=pid;
         name=pname;
@@ -28,11 +28,11 @@ public:
     {
         return quantity*price;
     }
-    void display()
+    void Display()
      {
         cout<<"ID: "<<id<<endl;
-         cout<<"Name: " <<name<<endl;
-          cout<<"Quantity: "<<quantity<<endl;
+        cout<<"Name: " <<name<<endl;
+        cout<<"Quantity: "<<quantity<<endl;
         cout<< "Price: "<<price<<endl;
     }
 };
@@ -49,7 +49,7 @@ public:
      {
         if (count<Max_Products)
             {
-            products[count].Set_Data(id,name,quantity,price);
+            products[count].Get_Data(id,name,quantity,price);
             count++;
         }
          else
@@ -84,39 +84,45 @@ public:
      {
         for (int i=0;i<count;i++)
             {
-            products[i].display();
+            products[i].Display();
         }
     }
 };
 int main()
 {
     int n,i;
+    char choice;
     cout<<"Enter the number of items: "<<endl;
     cin>>n;
     Inventory inv[n];
     int id,quantity,up_quantity,up_id;
     string name;
     float price;
-     cout<<"Enter the name of the product: "<<endl;
-     cin.ignore();
-     getline(cin,name);
+    for(i=0;i<n;i++)
+    {
+    cout<<"Enter the name of the product: "<<endl;
+    cin.ignore();
+    getline(cin,name);
     cout<<"Enter the id of the product: "<<endl;
     cin>>id;
     cout<<"Enter the Quantity of the product: "<<endl;
     cin>>quantity;
-   cout<<"Enter the price of the product: "<<endl;
-   cin>>price;
-   for(i=0;i<n;i++)
-   {
+    cout<<"Enter the price of the product: "<<endl;
+    cin>>price;
     inv[i].Add_Product(id,name,quantity,price);
+    cout<<"Enter Y to update quantity and N to not update: ";
+    cin>>choice;
+    if(choice=='Y')
+    {
     cout<<"Enter the updated quantity: "<<endl;
     cin>>up_quantity;
     cout<<"Enter the id  of the product: "<<endl;
     cin>>up_id;
     inv[i].Update(up_id,up_quantity);
+    }
     inv[i].Display_Inventory();
     cout<<"Total Inventory Value: "<<inv[i].Calculate_Total_Value()<<endl;
-   }
+    }
     return 0;
 }
 
