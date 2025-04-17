@@ -1,18 +1,18 @@
 #include<iostream>
 using namespace std;
-class acc_details
+class Account_Details
 {
 private:
    string acc_name;
    int acc_number,count=0;
    double acc_balance=0;
 public:
-    void get(string n,int acc_num)
+    void Get_data(string n,int acc_num)
     {
         acc_name=n;
         acc_number=acc_num;
     }
-    double deposit(double depo)
+    double Deposit_Amount(double depo)
     {
         acc_balance=acc_balance+depo;
         cout<<"BALANCE AFTER DEPOSITED AMOUNT: "<<acc_balance<<endl;
@@ -21,7 +21,7 @@ public:
     int Get_Acc_Num() {
         return acc_number;
     }
-    double withdraw(double widr)
+    double Withdraw_Amount(double widr)
     {
         if(widr>5000)
         {
@@ -36,7 +36,6 @@ public:
             cout<<"INSIFFICENT BALANCE";
         }
     }
-
 }A[100];
 
 int count=0;
@@ -53,11 +52,11 @@ int main()
     int balance,account_num,i,index;
     string name;
     double depo_amount,widr_amount;
-    char ch;
+    char choice;
     do{
     cout<<"Enter 'D' for depositing the money ,enter 'W' for withdrawing the money and enter 'E' to exit, Enter 'A' to add account: ";
-    cin>>ch;
-    switch(ch)
+    cin>>choice;
+    switch(choice)
     {
     case 'A':
     cout<<"------------------------------------"<<endl;
@@ -70,7 +69,7 @@ int main()
                 cout<< "Account already exists"<<endl;
                 break;
             }
-            A[count].get(name, account_num);
+            A[count].Get_data(name, account_num);
             cout << "Account created successfully"<<endl;
     count++;
     cout<<"------------------------------------"<<endl;
@@ -80,13 +79,14 @@ int main()
             cin>>account_num;
         index= Find_Account(account_num);
             if(index==-1)
-                {
+            {
                 cout<<"Account not found!"<<endl;
                 break;
             }
             cout<<"Enter deposit amount: ";
             cin>>depo_amount;
-            A[index].deposit(depo_amount);
+            A[index].Deposit_Amount(depo_amount);
+            break;
     break;
     case 'W':
         cout<<"Enter account number: ";
@@ -97,15 +97,12 @@ int main()
                 cout<<"Account not found!"<<endl;
                 break;
             }
-            cout<<"Enter deposit amount: ";
+            cout<<"Enter withdraw amount: ";
             cin>>widr_amount;
-            A[index].withdraw(widr_amount);
+            A[index].Withdraw_Amount(widr_amount);
             break;
-    default:
-        cout<<"Enter a valid function to perform";
-        break;
-    }
 
-    }while(ch!='E');
+    }
+    }while(choice!='E');
     return 0;
 }
