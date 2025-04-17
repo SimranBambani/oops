@@ -1,36 +1,36 @@
 #include<iostream>
 using namespace std;
-class shape
+class Shape
 {
 private:
     string shape_name;
     float radius;
 public:
-    void get_data(string name,float radii)
+    void Get_Data(string name,float radii)
     {
        shape_name=name;
        radius=radii;
     }
-    void display()
+    void Display()
     {
         cout<<"The shape of the object: "<<shape_name<<endl;
         cout<<"Radius of th object: "<<radius<<endl;
     }
-   inline float radius_()
+   inline float Radius_Of_Shape()
     {
         return radius;
     }
 };
-class circle: public shape
+class Circle: public Shape
 {
 public:
-    float area(){
-    float Radius=radius_();
+    float Area_Of_Shape(){
+    float Radius=Radius_Of_Shape();
     return 3.14*Radius*Radius;
     }
-    void display_radius()
+    void Display_Area()
     {
-        cout<<"Area of the circle: "<<area()<<endl;
+        cout<<"Area of the circle: "<< Area_Of_Shape()<<endl;
     }
 
 };
@@ -39,7 +39,7 @@ int main()
     int num;
     cout<<"Enter the number of the circle: "<<endl;
     cin>>num;
-    circle *C1= new circle[num];
+    Circle *C1= new Circle[num];
     float radii;
     string name;
     for(int i=0;i<num;i++){
@@ -48,10 +48,10 @@ int main()
     getline(cin,name);
     cout<<"Enter the radius: ";
     cin>>radii;
-    C1[i].get_data(name,radii);
-    C1[i].display();
-    C1[i].area();
-    C1[i].display_radius();
+    C1[i].Get_Data(name,radii);
+    C1[i].Display();
+    C1[i]. Area_Of_Shape();
+    C1[i].Display_Area();
     }
     return 0;
 }
