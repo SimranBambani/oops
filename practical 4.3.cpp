@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
-
-class Fuel_type{
+class Fuel_type
+{
 protected:
     string Fuel;
 public:
@@ -9,7 +9,7 @@ public:
     {
         Fuel=f;
     }
-    void put()
+    void Display_Fuel()
     {
         cout<<"Fuel: "<<Fuel<<endl;
     }
@@ -23,7 +23,7 @@ public:
     {
         brand=b;
     }
-    void put_data()
+    void Display_Brand()
     {
         cout<<"Brand: "<<brand<<endl;
     }
@@ -37,41 +37,36 @@ public:
     {
         car=c;
     }
-    void display()
+    void Display_Car()
     {
         cout<<"Car: "<<car<<endl;
-        put_data();
-        put();
+       Display_Fuel();
+       Display_Brand();
         cout<<"-------------------------------"<<endl;
     }
 };
 int main()
 {
-    int a,i;
-    string f,b,c1;
+    int number,i;
+    string fuel,brand,car;
     cout<<"Enter the number of cars: "<<endl;
-    cin>>a;
-    Car** c = new Car*[a];
-    for(i=0;i<a;i++)
+    cin>>number;
+    Car** c = new Car*[number];
+    for(i=0;i<number;i++)
     {
          cout<<"Enter fuel type: ";
          cin.ignore();
-        getline(cin,f);
+        getline(cin,fuel);
         cout<<"Enter brand: ";
         cin.ignore();
-        getline(cin,b);
+        getline(cin,brand);
         cout<<"Enter car: ";
         cin.ignore();
-        getline(cin,c1);
-
-        c[i]=new Car(f,b,c1);
+        getline(cin,car);
+        c[i]=new Car(fuel,brand,car);
+        c[i]->Display_Car();
     }
-    for(i=0;i<a;i++)
-    {
-         cout<<"-------------------------------"<<endl;
-        c[i]->display();
-    }
-    for (i=0;i<a;i++) {
+    for (i=0;i<number;i++) {
         delete c[i];
     }
     delete[] c;
