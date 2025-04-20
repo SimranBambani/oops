@@ -2,7 +2,7 @@
 using namespace std;
 class Fuel_type
 {
-protected:
+private:
     string Fuel;
 public:
     Fuel_type(string f)
@@ -16,7 +16,7 @@ public:
 };
 class Brand
 {
-protected:
+private:
     string brand;
 public:
     Brand(string b)
