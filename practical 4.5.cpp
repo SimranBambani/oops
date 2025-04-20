@@ -18,7 +18,6 @@ public:
     }
     virtual void Calculate_Grade()
     {
-        cout<<"Base class grade calculation."<<endl;
     }
     void Display_Data() {
         cout<<"Name: "<<name<<endl;
