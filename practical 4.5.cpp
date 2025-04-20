@@ -24,8 +24,7 @@ public:
         cout<<"Roll No: "<<rollNo<<endl;
         cout<<"Marks: "<<marks<<endl;
     }
-    ~Student_Grade() {}
-};
+  
 class Undergraduate : public Student_Grade {
 public:
     void Calculate_Grade() {
